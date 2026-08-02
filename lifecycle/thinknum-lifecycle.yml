@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://docs.thinknum.com/docs/getting-started.md,
+  https://www.thinknum.com/status, https://blog.thinknum.com/tag/release-notes/
+description: >-
+  Versioning and operational-transparency posture for the Thinknum Data API.
+  Versioning is pinned by a dated `X-API-Version` request header; a public status
+  dashboard is published; release notes are posted to the Thinknum blog. No
+  formal deprecation policy or RFC 8594 Sunset/Deprecation header support is
+  documented.
+versioning:
+  scheme: date-based
+  mechanism: X-API-Version request header
+  current: '20151130'
+  docs: https://docs.thinknum.com/docs/getting-started.md
+  notes: >-
+    Every request must specify the API version via the X-API-Version header
+    (documented value 20151130).
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation policy or Sunset/Deprecation header support was found.
+status_page: https://www.thinknum.com/status
+sla:
+  url: null
+  public_uptime_target: null

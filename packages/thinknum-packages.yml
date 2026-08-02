@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: https://pypi.org/project/thinknum/
+description: >-
+  First-party Thinknum client library. Verified against the public package
+  registries: the `thinknum` package on PyPI is published by Thinknum
+  (author_email customersuccess@thinknum.com, source
+  github.com/thinknum/thinknum-client). No first-party npm, RubyGems, NuGet,
+  Maven, Go, Packagist, or crates.io library was found at fetch time (npm
+  registry returned 404 for `thinknum`).
+packages:
+  - language: python
+    registry: pypi
+    name: thinknum
+    version: 2.0.0
+    url: https://pypi.org/project/thinknum/
+    source: https://github.com/thinknum/thinknum-client
+    install: pip install thinknum
+    license: MIT
+    official: true

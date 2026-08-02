@@ -1,7 +1,27 @@
 aid: thinknum
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/thinknum.png
 name: Thinknum
-description: Thinknum is a company surfaced as a portfolio company of 500-global and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Thinknum is an alternative data platform that collects and structures
+  web-sourced datasets to power investment and business intelligence. It tracks
+  metrics such as job listings, store locations, product pricing, web traffic,
+  app reviews, and social engagement across hundreds of thousands of companies,
+  keyed by exchange ticker. The Thinknum Data API (data.thinknum.com) exposes
+  these datasets over a token-authenticated REST interface with Query,
+  Historical, Company, and Upload endpoints, plus embeddable widgets and an
+  official Python client. Backed by 500 Global.
 url: https://raw.githubusercontent.com/api-evangelist/thinknum/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,10 +31,42 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 12
+  pass: local-v1
 tags:
 - Company
-apis: []
+- Alternative Data
+- Financial Data
+- Investment Research
+- Market Intelligence
+- Web Data
+- Datasets
+apis:
+- name: Thinknum Data API
+  description: >-
+    Token-authenticated REST API over data.thinknum.com for querying Thinknum's
+    alternative datasets. Endpoints cover dataset query (filter/group/sort/
+    function), historical daily and monthly feeds, company lookup by ticker or
+    domain, and CSV upload.
+  humanURL: https://docs.thinknum.com
+  baseURL: https://data.thinknum.com
+  tags:
+  - Alternative Data
+  - Datasets
+  - Financial Data
+  properties:
+  - type: Documentation
+    url: https://docs.thinknum.com
+  - type: GettingStarted
+    url: https://docs.thinknum.com/docs/getting-started.md
+  - type: APIReference
+    url: https://docs.thinknum.com/docs/query-api.md
+  - type: Authentication
+    url: authentication/thinknum-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +75,49 @@ maintainers:
 common:
 - type: Website
   url: https://thinknum.com
+- type: DeveloperPortal
+  url: https://docs.thinknum.com
+- type: Documentation
+  url: https://docs.thinknum.com
+- type: APIReference
+  url: https://docs.thinknum.com/docs/query-api.md
+- type: GettingStarted
+  url: https://docs.thinknum.com/docs/getting-started.md
+- type: Authentication
+  url: authentication/thinknum-authentication.yml
+- type: Blog
+  url: https://blog.thinknum.com/
+- type: StatusPage
+  url: https://www.thinknum.com/status
+- type: Support
+  url: mailto:support@thinknum.com
+- type: Login
+  url: https://www.thinknum.com/creator/account/login/
+- type: TermsOfService
+  url: https://www.thinknum.com/tos
+- type: GitHubOrganization
+  url: https://github.com/thinknum
+- type: Packages
+  url: packages/thinknum-packages.yml
+- type: SDKs
+  url: packages/thinknum-packages.yml
+- type: LLMsTxt
+  url: llms/thinknum-llms.txt
+- type: Conventions
+  url: conventions/thinknum-conventions.yml
+- type: RateLimits
+  url: rate-limits/thinknum-rate-limits.yml
+- type: ErrorCatalog
+  url: errors/thinknum-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/thinknum-lifecycle.yml
+- type: ChangeLog
+  url: changelog/thinknum-changelog.yml
+- type: Components
+  url: components/thinknum-components.yml
+- type: MCPServer
+  url: mcp/thinknum-mcp.yml
+- type: DataModel
+  url: data-model/thinknum-data-model.yml
+- type: DomainSecurity
+  url: security/thinknum-domain-security.yml

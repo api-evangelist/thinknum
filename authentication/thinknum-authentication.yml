@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.thinknum.com/docs/authenticating.md
+docs: https://docs.thinknum.com/docs/authenticating.md
+description: >-
+  Thinknum uses token-based authentication over HTTPS to data.thinknum.com.
+  Clients first exchange a client_id + client_secret (issued by a Thinknum
+  account manager) for a short-lived bearer token via POST /api/authorize, then
+  send that token on every request as `Authorization: token <TOKEN>` alongside a
+  dated `X-API-Version` header. Tokens expire and must be re-obtained. Embeddable
+  widgets use a separate HTTP Basic exchange (client_id:client_secret) against
+  www.thinknum.com/authenticate that returns a 15-minute widget token.
+summary:
+  types:
+  - http
+  http_scheme: token
+  token_endpoint: https://data.thinknum.com/api/authorize
+  required_headers:
+  - name: Authorization
+    value: token <TOKEN>
+  - name: X-API-Version
+    value: '20151130'
+schemes:
+  - name: tokenAuth
+    type: http
+    scheme: token
+    in: header
+    header: Authorization
+    format: 'token <TOKEN>'
+    description: >-
+      Bearer token issued by POST /api/authorize (body: client_id, client_secret,
+      version). Response returns auth_token + auth_expires; token has a finite
+      expiration and must be renewed.
+    source: https://docs.thinknum.com/docs/authenticating.md
+  - name: widgetBasicAuth
+    type: http
+    scheme: basic
+    description: >-
+      HTTP Basic (client_id:client_secret) against
+      https://www.thinknum.com/authenticate to mint a 15-minute token for the
+      embeddable Company Metrics and Connections Map widgets. Requires a
+      widget-activated client_id/client_secret.
+    source: https://docs.thinknum.com/docs/company-metrics-widget.md

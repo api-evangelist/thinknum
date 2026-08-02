@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: searched
+source: https://blog.thinknum.com/tag/release-notes/
+docs: https://blog.thinknum.com/tag/release-notes/
+description: >-
+  Thinknum publishes product and API release notes on its blog under the
+  release-notes tag (and a product-manual tag). There is no dated, machine-
+  readable API changelog; the blog tag is the source of truth. The API version
+  itself is pinned by the X-API-Version header (see lifecycle).
+versioning:
+  scheme: date-based (X-API-Version header)
+  current: '20151130'
+  detail: lifecycle/thinknum-lifecycle.yml
+channels:
+  - name: Release Notes
+    url: https://blog.thinknum.com/tag/release-notes/
+  - name: Product Manual
+    url: https://blog.thinknum.com/tag/product-manual/
+entries: []

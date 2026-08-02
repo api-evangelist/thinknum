@@ -1,0 +1,24 @@
+# Thinknum Documentation
+
+> Documentation for Thinknum
+
+## Guides
+- [Making Requests](https://docs.thinknum.com/docs/getting-started.md)
+- [Authenticating](https://docs.thinknum.com/docs/authenticating.md)
+- [Query API](https://docs.thinknum.com/docs/query-api.md)
+- [Filter](https://docs.thinknum.com/docs/new-query-api-1.md)
+- [Group/Aggregation](https://docs.thinknum.com/docs/3-groupaggregation.md)
+- [Sort](https://docs.thinknum.com/docs/-sort.md)
+- [Function](https://docs.thinknum.com/docs/function.md)
+- [Save as file](https://docs.thinknum.com/docs/-save-as-file.md)
+- [HTTP Response Status Code](https://docs.thinknum.com/docs/-etc.md)
+- [Historical API](https://docs.thinknum.com/docs/historical-api.md)
+- [Status dashboard](https://docs.thinknum.com/docs/status.md)
+- [Company API](https://docs.thinknum.com/docs/company-api.md)
+- [Upload API](https://docs.thinknum.com/docs/upload-api.md)
+- [Company Metrics Widget](https://docs.thinknum.com/docs/company-metrics-widget.md)
+- [Connections Map Widget](https://docs.thinknum.com/docs/connections-map-widget.md)
+- [Load data](https://docs.thinknum.com/docs/load-data.md)
+- [Load data](https://docs.thinknum.com/docs/load-data-1.md)
+- [Load data](https://docs.thinknum.com/docs/load-data-2.md)
+- [Load data](https://docs.thinknum.com/docs/load-data-3.md)

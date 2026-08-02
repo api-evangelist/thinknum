@@ -1,0 +1,54 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.thinknum.com/docs/getting-started.md
+description: >-
+  Cross-cutting request/response semantics for the Thinknum Data API, captured
+  from the published documentation. REST over HTTPS to data.thinknum.com, JSON
+  responses, token auth, a dated API-version header, offset-style pagination, and
+  a fixed 20-requests-per-minute rate limit surfaced via HTTP 429. No idempotency
+  key contract is documented.
+base_url: https://data.thinknum.com
+transport: https
+media_type: application/json
+authentication:
+  style: bearer-token
+  detail: authentication/thinknum-authentication.yml
+versioning:
+  style: header
+  header: X-API-Version
+  value: '20151130'
+  detail: lifecycle/thinknum-lifecycle.yml
+pagination:
+  style: offset
+  params:
+    - name: start
+      default: 1
+      description: 1-indexed offset of the first row to return.
+    - name: limit
+      default: 100000
+      description: Maximum number of rows to return.
+  response_fields:
+    - total
+    - start
+    - limit
+  notes: >-
+    Documented on the Company API (GET /companies/) list responses; `total`
+    reports the full result count while `start`/`limit` window the page.
+idempotency:
+  supported: false
+  notes: >-
+    No Idempotency-Key header or idempotent-retry contract is documented. The
+    504 Gateway Timeout guidance tells clients to retry, and retries attach to
+    the existing queued query rather than starting a new one, but this is a
+    query-queue behavior, not a request-idempotency guarantee.
+rate_limiting:
+  limit: 20
+  window: minute
+  throttled_status: 429
+  detail: rate-limits/thinknum-rate-limits.yml
+error_handling:
+  style: http-status
+  detail: errors/thinknum-problem-types.yml
+  notes: >-
+    Errors are signaled by HTTP status code (400/401/404/429/500/504). No
+    application/problem+json envelope is documented.

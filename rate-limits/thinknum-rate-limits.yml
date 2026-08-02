@@ -1,0 +1,25 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+provider: Thinknum
+providerId: thinknum
+generated: '2026-07-21'
+method: searched
+created: '2026-07-21'
+modified: '2026-07-21'
+tags:
+  - Rate Limiting
+  - Alternative Data
+description: >-
+  Thinknum Data API enforces a fixed request ceiling of 20 requests per minute.
+  Exceeding it returns HTTP 429 Too Many Requests. Captured from the published
+  "HTTP Response Status Code" documentation.
+sources:
+  - https://docs.thinknum.com/docs/-etc.md
+responseCodes:
+  throttled: 429
+limits:
+  - name: All requests
+    scope: token
+    metric: requests_per_minute
+    limit: 20
+    timeFrame: minute

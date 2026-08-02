@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.thinknum.com/docs/-etc.md
+format: http-status
+description: >-
+  HTTP response status codes returned by the Thinknum Data API, captured verbatim
+  from the "HTTP Response Status Code" documentation page. Thinknum does not
+  publish an application/problem+json (RFC 9457) envelope; errors are conveyed by
+  status code. The 500 error page directs clients to contact
+  customersuccess@thinknum.com.
+problems:
+  - status: 200
+    title: OK
+    detail: The request has succeeded.
+  - status: 400
+    title: Bad Request
+    detail: >-
+      The server could not understand the request due to invalid syntax. Check
+      the payload for valid format.
+  - status: 401
+    title: Unauthorized
+    detail: >-
+      The client must authenticate itself to get the requested response.
+      Generate a new token.
+  - status: 404
+    title: Not Found
+    detail: The URL is not recognized.
+  - status: 429
+    title: Too Many Requests
+    detail: >-
+      The user has sent too many requests in a given amount of time. The limit
+      is 20 requests per minute.
+  - status: 500
+    title: Internal Server Error
+    detail: >-
+      The server has encountered a situation it does not know how to handle.
+      Contact customersuccess@thinknum.com.
+  - status: 504
+    title: Gateway Timeout
+    detail: >-
+      The server could not get a response in time. Keep retrying until data is
+      returned; each retry connects to the existing queued query and does not
+      start a new query.

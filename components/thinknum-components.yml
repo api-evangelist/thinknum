@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://docs.thinknum.com/docs/company-metrics-widget.md,
+  https://docs.thinknum.com/docs/connections-map-widget.md
+description: >-
+  Thinknum publishes embeddable, client-side widgets that render dataset metrics
+  and visualizations inside a third-party website or application, distinct from
+  the server-side Python client in packages/thinknum-packages.yml. Both widgets
+  require a widget-activated account (contact sales) and a short-lived (15-minute)
+  token minted server-side via HTTP Basic to www.thinknum.com/authenticate.
+docs:
+  - https://docs.thinknum.com/docs/company-metrics-widget.md
+  - https://docs.thinknum.com/docs/connections-map-widget.md
+auth:
+  token_endpoint: https://www.thinknum.com/authenticate
+  scheme: http-basic
+  token_ttl_minutes: 15
+families:
+  widgets:
+    description: Embeddable company-data widgets loaded via an injector script or iframe.
+    components:
+      - name: Company Metrics Widget
+        id: company-metrics
+        loader: https://www.thinknum.com/embed/company/injector.js
+        mount: 'Thinknum.initialize({ token, ticker|cusip, width, height })'
+        description: >-
+          Embeds common dataset metrics for a company (selected by ticker or
+          CUSIP) into a website or app via the injector script.
+      - name: Connections Map Widget
+        id: connections-map
+        loader: https://www.thinknum.com/embed/connections/<DATASET_ID>
+        mount: 'iframe src=".../embed/connections/<DATASET_ID>?token=...&datasetQueries[]=<QUERY>"'
+        description: >-
+          Embeds the map from the Connections app for a given dataset and query
+          as an iframe.

@@ -1,0 +1,47 @@
+generated: '2026-07-21'
+method: searched
+source: >-
+  https://docs.thinknum.com/docs/query-api.md,
+  https://docs.thinknum.com/docs/company-api.md,
+  https://docs.thinknum.com/docs/historical-api.md,
+  https://docs.thinknum.com/docs/upload-api.md
+description: >-
+  Entity-relationship model for the Thinknum Data API, captured from the object
+  shapes in the published API documentation (no OpenAPI is published). The core
+  domain: Datasets of web-sourced metrics, the Companies they cover (keyed by
+  exchange ticker), per-dataset History files, and user-supplied CSV Uploads.
+entities:
+  - name: Dataset
+    id_field: id
+    key_example: job_listings
+    fields: [id, display_name, summary, state, blog_url, companies_count]
+    description: A collection of web-sourced metrics Thinknum compiles (e.g. Job Listings, Web Traffic).
+  - name: Company
+    id_field: ticker
+    key_example: 'nasdaq:tsla'
+    fields: [ticker, name]
+    description: A tracked company, keyed by exchange:ticker; searchable by domain.
+  - name: DatasetHistory
+    id_field: history_date
+    fields: [id, total, history]
+    description: Daily/monthly historical snapshot files available for a dataset.
+  - name: Upload
+    id_field: id
+    fields: [id, display_name, visibility, state, total, is_geo, columns]
+    description: A user-uploaded CSV imported as a private dataset.
+relationships:
+  - from: Dataset
+    to: Company
+    type: has_many
+    via: ticker
+    description: A dataset covers many companies (companies_count); companies can be listed per dataset via dataset_id.
+  - from: DatasetHistory
+    to: Dataset
+    type: belongs_to
+    via: id
+    description: Each history file belongs to one dataset.
+  - from: Upload
+    to: Dataset
+    type: has_one
+    via: id
+    description: A completed upload becomes a private dataset.
