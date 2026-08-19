@@ -1,38 +1,42 @@
 generated: '2026-07-21'
 method: derived
 status: candidate
-source: >-
-  Derived from the documented Thinknum Data API operations
-  (https://docs.thinknum.com). No official hosted or local MCP server was found
-  on the docs, npm (@modelcontextprotocol), or MCP registries at fetch time.
-description: >-
-  Candidate MCP tool surface derived from the published Thinknum Data API
-  operations. Not an official Thinknum MCP server — a starting point for wrapping
-  the token-authenticated REST API as MCP tools.
+source: Derived from the documented Thinknum Data API operations (https://docs.thinknum.com). No official
+  hosted or local MCP server was found on the docs, npm (@modelcontextprotocol), or MCP registries at
+  fetch time.
+description: Candidate MCP tool surface derived from the published Thinknum Data API operations. Not an
+  official Thinknum MCP server — a starting point for wrapping the token-authenticated REST API as MCP
+  tools.
 server:
   name: thinknum
   transport: http
   base_url: https://data.thinknum.com
   auth: token
 tools:
-  - name: list_datasets
-    description: List the datasets Thinknum compiles, optionally filtered by ticker.
-    source_operation: 'GET /datasets/'
-  - name: query_dataset
-    description: Query a dataset with filter, group/aggregation, sort, and function parameters.
-    source_operation: 'GET /datasets/{dataset_id}'
-  - name: list_dataset_history
-    description: List the available daily/monthly history dates for a dataset.
-    source_operation: 'GET /datasets/{dataset_id}/history/'
-  - name: get_dataset_history
-    description: Retrieve the metadata / download for a dataset historical file by date.
-    source_operation: 'GET /datasets/{dataset_id}/history/{history_date}'
-  - name: list_companies
-    description: List companies in Thinknum, filterable by domain or dataset_id, with start/limit pagination.
-    source_operation: 'GET /companies/'
-  - name: upload_csv
-    description: Upload a CSV file to create a private dataset.
-    source_operation: 'POST /uploads/'
-  - name: setup_upload_columns
-    description: Configure columns for an uploaded CSV to begin import.
-    source_operation: 'POST /uploads/{upload_id}/setup/'
+- name: list_datasets
+  description: List the datasets Thinknum compiles, optionally filtered by ticker.
+  source_operation: GET /datasets/
+- name: query_dataset
+  description: Query a dataset with filter, group/aggregation, sort, and function parameters.
+  source_operation: GET /datasets/{dataset_id}
+- name: list_dataset_history
+  description: List the available daily/monthly history dates for a dataset.
+  source_operation: GET /datasets/{dataset_id}/history/
+- name: get_dataset_history
+  description: Retrieve the metadata / download for a dataset historical file by date.
+  source_operation: GET /datasets/{dataset_id}/history/{history_date}
+- name: list_companies
+  description: List companies in Thinknum, filterable by domain or dataset_id, with start/limit pagination.
+  source_operation: GET /companies/
+- name: upload_csv
+  description: Upload a CSV file to create a private dataset.
+  source_operation: POST /uploads/
+- name: setup_upload_columns
+  description: Configure columns for an uploaded CSV to begin import.
+  source_operation: POST /uploads/{upload_id}/setup/
+deployment:
+  mode: none
+  verified: derived
+  tools: 7
+  checked: '2026-08-12'
+  source: catalog MCP census
